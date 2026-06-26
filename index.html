@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Adil</title>
+<title>Muhammad Adil — Lecturer, University of Rawalpindi</title>
 <meta name="description" content="Muhammad Adil — Lecturer, Department of Computing and Intelligent Systems, University of Rawalpindi. Qualifications, experience, research, certificates and gallery.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -78,6 +78,12 @@
   /* ---------- HERO ---------- */
   header.hero{background:linear-gradient(180deg,#fff 0%, var(--bg-soft) 100%); padding-top:60px;}
   .hero-inner{max-width:760px; margin:0 auto; padding:0 24px;}
+  .hero-grid{display:flex; gap:40px; align-items:flex-start;}
+  .hero-photo{flex:0 0 auto;}
+  .hero-text{flex:1; min-width:0;}
+  @media(max-width:680px){
+    .hero-grid{flex-direction:column; align-items:flex-start;}
+  }
   .avatar.ph{
     width:108px; height:108px; border-radius:50%; margin-top:-54px; border-width:3px;
     background:#F4F8FF; box-shadow:0 4px 18px rgba(11,43,92,0.12);
@@ -86,7 +92,6 @@
   .avatar-photo{
     width:200px; height:200px; border-radius:50%; overflow:hidden;
     border:5px solid #fff; box-shadow:0 12px 30px rgba(11,43,92,0.22); background:#fff;
-    margin:0 0 26px;
   }
   .avatar-photo img{width:100%; height:100%; object-fit:cover; object-position:top center;}
   h1.name{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(34px,6vw,52px); margin:0 0 4px; letter-spacing:-0.01em; color:var(--blue-deep);}
@@ -103,7 +108,9 @@
   .btn-ghost{background:#fff; color:var(--blue); border:1.5px solid var(--blue);}
   .btn-ghost:hover{background:var(--blue-tint); text-decoration:none; transform:translateY(-2px);}
 
-  .social-row{display:flex; gap:14px; flex-wrap:wrap; margin:0 0 26px;}
+  .social-row{display:flex; gap:20px; flex-wrap:wrap; margin:0 0 26px;}
+  .social-item{display:flex; flex-direction:column; align-items:center; gap:7px;}
+  .social-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:0.02em;}
   .social-btn{
     width:52px; height:52px; border-radius:50%; background:var(--blue); color:#fff;
     display:flex; align-items:center; justify-content:center;
@@ -128,6 +135,9 @@
   .tl-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--blue); display:block; margin-bottom:4px;}
   .tl-item h4{font-size:16px; font-weight:700; margin:0 0 3px; color:var(--ink);}
   .tl-item p{margin:0; color:var(--muted); font-size:14px;}
+  .tl-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
+  .tl-meta .tl-date{display:inline; margin-bottom:0;}
+  .tl-kind{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--blue); background:var(--blue-tint); padding:2px 8px; border-radius:4px;}
 
   /* ---------- CARDS ---------- */
   .grid{display:grid; gap:16px;}
@@ -195,9 +205,10 @@
   footer .wrap{max-width:760px;}
   footer h2{color:#fff;}
   footer .section-sub{color:#9FBBEE;}
-  .contact-grid{display:grid; gap:12px; font-size:15px; margin-bottom:36px;}
-  .contact-grid div span.lbl{color:#9FBBEE; font-family:'IBM Plex Mono',monospace; font-size:12px; display:inline-block; width:90px;}
-  .contact-grid a{color:#9FE0FF;}
+  .contact-icons{display:flex; gap:22px; flex-wrap:wrap; margin-bottom:40px;}
+  .footer-btn{background:#fff; color:var(--blue-deep); box-shadow:0 6px 16px rgba(0,0,0,0.18);}
+  .footer-btn:hover{background:#EAF1FF; color:var(--blue-deep);}
+  footer .social-label{color:#9FBBEE;}
   .foot-note{color:#7E9FD6; font-size:12.5px; font-family:'IBM Plex Mono',monospace; border-top:1px solid rgba(255,255,255,0.15); padding-top:20px;}
 
   /* ---------- BACK TO TOP ---------- */
@@ -220,7 +231,7 @@
 
 <nav>
   <div class="wrap">
-    <span class="brand">MUHAMMAD ADIL</span>
+    <span class="brand">M. Adil</span>
     <ul class="navlinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#qualification">Qualification</a></li>
@@ -229,6 +240,7 @@
       <li><a href="#cv">CV</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#timeline">Timeline</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamBtn" aria-label="Toggle menu" aria-expanded="false">
@@ -244,35 +256,58 @@
   <a href="#cv">CV</a>
   <a href="#certificates">Certificates</a>
   <a href="#gallery">Gallery</a>
+  <a href="#timeline">Timeline</a>
   <a href="#contact">Contact</a>
 </div>
 
 <header class="hero" id="home">
-  <div class="hero-inner">
-    <div class="avatar-photo">
-      <img src="assets/profile.png" alt="Muhammad Adil">
+  <div class="hero-inner hero-grid">
+    <div class="hero-photo">
+      <div class="avatar-photo">
+        <img src="assets/profile.png" alt="Muhammad Adil">
+      </div>
     </div>
-    <p class="eyebrow"> | Lecturer | Researcher | AI |</p>
-    <h1 class="name">Muhammad Adil</h1>
-    <!-- <p class="role-line">Lecturer at the <strong>University of Rawalpindi</strong>, Pakistan</p> -->
-    <div class="social-row">
-      <a class="social-btn" href="mailto:madilkhancui@gmail.com" aria-label="Email" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-      </a>
-      <a class="social-btn" href="https://m-adilk.github.io/" target="_blank" rel="noopener" aria-label="Personal Website" title="Personal Website">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18 13 13 0 010-18"/></svg>
-      </a>
-      <a class="social-btn" href="https://www.researchgate.net/profile/Muhammad-Adil-71" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">
-        <span class="badge-text">RG</span>
-      </a>
-      <a class="social-btn" href="https://www.linkedin.com/in/muhammadadil1496/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-        <span class="badge-text">in</span>
-      </a>
-    </div>
-    <p class="bio">I did BS (Hons) in Information Technology from University of Education, Lahore (Dera Ghazi Khan Campus) in 2021. I completed my MS in Computer Science from COMSATS University Islamabad (CUI) under the supervision of Prof. Dr. Nadeem Javaid in September 2023, and was part of the Communication over Sensors (ComSens) Research Lab from February to September 2023. My research interests cover data science, healthcare systems, data analytics, and machine and deep learning. I currently serve as a Lecturer in the Department of Computing and Intelligent Systems at the University of Rawalpindi (UOR), Rawalpindi 46000, Pakistan.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://drive.google.com/file/d/1E1vQfjkWOe2EPMNx3lc9OQmezYS1KTTf/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
-      <a class="btn btn-ghost" href="#contact">Contact Me</a>
+    <div class="hero-text">
+      <p class="eyebrow">Lecturer · Computing &amp; Intelligent Systems · UOR</p>
+      <h1 class="name">Muhammad Adil</h1>
+      <p class="role-line">Lecturer at the <strong>University of Rawalpindi</strong>, Pakistan</p>
+      <div class="social-row">
+        <div class="social-item">
+          <a class="social-btn" href="mailto:madilkhancui@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+          <span class="social-label">Email</span>
+        </div>
+        <div class="social-item">
+          <a class="social-btn" href="tel:+923326239995" aria-label="Phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </a>
+          <span class="social-label">Phone</span>
+        </div>
+        <div class="social-item">
+          <a class="social-btn" href="https://m-adilk.github.io/" target="_blank" rel="noopener" aria-label="Personal Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18 13 13 0 010-18"/></svg>
+          </a>
+          <span class="social-label">Website</span>
+        </div>
+        <div class="social-item">
+          <a class="social-btn" href="https://www.researchgate.net/profile/Muhammad-Adil-71" target="_blank" rel="noopener" aria-label="ResearchGate">
+            <span class="badge-text">RG</span>
+          </a>
+          <span class="social-label">ResearchGate</span>
+        </div>
+        <div class="social-item">
+          <a class="social-btn" href="https://www.linkedin.com/in/muhammadadil1496/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <span class="badge-text">in</span>
+          </a>
+          <span class="social-label">LinkedIn</span>
+        </div>
+      </div>
+      <p class="bio">I did BS (Hons) in Information Technology from University of Education, Lahore (Dera Ghazi Khan Campus) in 2021. I completed my MS in Computer Science from COMSATS University Islamabad (CUI) under the supervision of Prof. Dr. Nadeem Javaid in September 2023, and was part of the Communication over Sensors (ComSens) Research Lab from February to September 2023. My research interests cover data science, healthcare systems, data analytics, and machine and deep learning. I currently serve as a Lecturer in the Department of Computing and Intelligent Systems at the University of Rawalpindi (UOR), Rawalpindi 46000, Pakistan.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1E1vQfjkWOe2EPMNx3lc9OQmezYS1KTTf/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btn-ghost" href="#contact">Contact Me</a>
+      </div>
     </div>
   </div>
 
@@ -329,7 +364,7 @@
       </div>
       <div class="card">
         <h3>Deep Learning for Heart Disease Prediction: Integrating Hybrid Models and Balancing Techniques for Improved Accuracy</h3>
-        <div class="meta">Journal of Cloud Computing (Impact Factor 3.4) · <b>Under Review</b>· 2026</div>
+        <div class="meta">Journal of Cloud Computing (Impact Factor 3.4) · Under Review · 2025</div>
         <p>Muhammad Adil, Nadeem Javaid, et al.</p>
       </div>
     </div>
@@ -438,15 +473,13 @@
           <div class="org">University of Rawalpindi · 25–26 Sept 2025</div>
         </div>
       </a>
-  <a class="cert" href="./assets/certs/Certificate_BSPC_Recognised.pdf" target="_blank" rel="noopener">
-  <div class="cert-thumb filled">
-    <img src="./assets/certs/Certificate_BSPC_Recognised-1.png" alt="Certificate of Reviewing">
-  </div>
-  <div class="cert-info">
-    <div class="title">Certificate of Reviewing — Biomedical Signal Processing and Control</div>
-    <div class="org">Elsevier · June 2025</div>
-  </div>
-</a>
+      <div class="cert">
+        <div class="ph cert-thumb"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div class="cert-info">
+          <div class="title">Certificate of Reviewing — Biomedical Signal Processing and Control</div>
+          <div class="org">Elsevier · June 2025</div>
+        </div>
+      </div>
       <a class="cert" href="assets/certs/peef.pdf" target="_blank" rel="noopener">
         <div class="cert-thumb filled"><img src="assets/certs/peef-1.png" alt="PEEF Certificate of Scholarship"></div>
         <div class="cert-info">
@@ -522,17 +555,96 @@
   </div>
 </section>
 
+<section id="timeline">
+  <div class="wrap">
+    <h2 class="reveal">Timeline</h2>
+    <p class="section-sub reveal">Education and experience, combined, most recent first</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Sep 2025 – Present</span><span class="tl-kind">Experience</span></div>
+        <h4>Lecturer, Computing and Intelligent Systems</h4>
+        <p>University of Rawalpindi, Pakistan</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Oct 2023 – Sep 2025</span><span class="tl-kind">Experience</span></div>
+        <h4>Lecturer (Contract-based), Computer Science</h4>
+        <p>Federal Urdu University of Arts, Science and Technology, Islamabad</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">2021 – 2023</span><span class="tl-kind">Education</span></div>
+        <h4>MS, Computer Science</h4>
+        <p>COMSATS University Islamabad (CUI)</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Oct 2021 – Sep 2023</span><span class="tl-kind">Experience</span></div>
+        <h4>Research Associate</h4>
+        <p>ComSens Research Lab, COMSATS University Islamabad</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">2017 – 2021</span><span class="tl-kind">Education</span></div>
+        <h4>BS (Hons), Information Technology</h4>
+        <p>University of Education Lahore, Dera Ghazi Khan Campus</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Oct 2020 – Feb 2021</span><span class="tl-kind">Experience</span></div>
+        <h4>Internee</h4>
+        <p>University of Education, Lahore, Dera Ghazi Khan Campus</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Passed 2017</span><span class="tl-kind">Education</span></div>
+        <h4>Intermediate — F.Sc (Pre-Engineering)</h4>
+        <p>Govt. Boys Higher Secondary School, Dajal, Rajanpur</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><span class="tl-date">Passed 2015</span><span class="tl-kind">Education</span></div>
+        <h4>Matriculation — Science</h4>
+        <p>Pilot Junior Model High School, Dajal, Rajanpur</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer id="contact">
   <div class="wrap">
     <h2 class="reveal">Contact</h2>
     <p class="section-sub reveal">Get in touch</p>
-    <div class="contact-grid reveal">
-      <div><span class="lbl">Office</span> <a href="mailto:muhammad.adil@uor.edu.pk">muhammad.adil@uor.edu.pk</a></div>
-      <div><span class="lbl">Personal</span> <a href="mailto:madilkhancui@gmail.com">madilkhancui@gmail.com</a></div>
-      <div><span class="lbl">Phone</span> +92 332 6239995</div>
-      <div><span class="lbl">LinkedIn</span> <a href="https://www.linkedin.com/in/muhammadadil1496/" target="_blank" rel="noopener">in/muhammadadil1496</a></div>
-      <div><span class="lbl">ResearchGate</span> <a href="https://www.researchgate.net/profile/Muhammad-Adil-71" target="_blank" rel="noopener">Muhammad-Adil-71</a></div>
-      <div><span class="lbl">Location</span> Rawalpindi, Pakistan</div>
+    <div class="contact-icons reveal">
+      <div class="social-item">
+        <a class="social-btn footer-btn" href="mailto:muhammad.adil@uor.edu.pk" aria-label="Office Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+        <span class="social-label">Office Email</span>
+      </div>
+      <div class="social-item">
+        <a class="social-btn footer-btn" href="mailto:madilkhancui@gmail.com" aria-label="Personal Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+        <span class="social-label">Personal Email</span>
+      </div>
+      <div class="social-item">
+        <a class="social-btn footer-btn" href="tel:+923326239995" aria-label="Phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
+        <span class="social-label">Phone</span>
+      </div>
+      <div class="social-item">
+        <a class="social-btn footer-btn" href="https://www.linkedin.com/in/muhammadadil1496/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span class="badge-text">in</span>
+        </a>
+        <span class="social-label">LinkedIn</span>
+      </div>
+      <div class="social-item">
+        <a class="social-btn footer-btn" href="https://www.researchgate.net/profile/Muhammad-Adil-71" target="_blank" rel="noopener" aria-label="ResearchGate">
+          <span class="badge-text">RG</span>
+        </a>
+        <span class="social-label">ResearchGate</span>
+      </div>
+      <div class="social-item">
+        <a class="social-btn footer-btn" href="#home" aria-label="Location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
+        <span class="social-label">Rawalpindi, PK</span>
+      </div>
     </div>
     <p class="foot-note">© 2026 Muhammad Adil — Lecturer, Department of Computing and Intelligent Systems, University of Rawalpindi.</p>
   </div>

@@ -227,9 +227,9 @@ header.hero::before{
 
 .icon-link{
 
-    width:42px;
+    width:38px;
 
-    height:42px;
+    height:38px;
 
     border-radius:50%;
 
@@ -403,7 +403,7 @@ header.hero::before{
 
     flex-wrap:wrap;
 
-    gap:16px;
+    gap:10px;
 
     white-space:normal;
 
@@ -448,7 +448,7 @@ header.hero::before{
 
     flex-wrap:wrap;
 
-    gap:14px;
+    gap:10px;
 
 }
 

@@ -185,13 +185,11 @@ header.hero::before{
 
     gap:18px;
 
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 
-    white-space:nowrap;
+    white-space:normal;
 
     margin:22px 0;
-
-    overflow:hidden;
 
 }
 
@@ -351,89 +349,128 @@ header.hero::before{
 
 }
 
-@media(max-width:950px){
+/* =====================================================
+   MOBILE RESPONSIVE HERO
+===================================================== */
+
+@media (max-width:900px){
 
 .hero-container{
 
-    align-items:start;
+    grid-template-columns:1fr;
 
-    padding-top:40px;
+    gap:35px;
+
+    justify-items:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    min-height:auto;
+
+    padding-top:30px;
 
 }
 
 .hero-left{
 
-justify-content:center;
+    justify-content:center;
+
+}
+
+.hero-right{
+
+    width:100%;
+
+}
+
+.hero-right h1{
+
+    font-size:40px;
+
+}
+
+.hero-role{
+
+    font-size:17px;
 
 }
 
 .hero-contact{
 
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    margin:22px 0;
+    justify-content:center;
 
     flex-wrap:wrap;
 
-}
+    gap:16px;
 
-.hero-contact .contact-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    white-space:nowrap;
-
-}
-
-.icon-link{
-
-    flex-shrink:0;
-
-}
-
-.hero-buttons{
-
-justify-content:center;
+    white-space:normal;
 
 }
 
 .hero-bio{
 
-text-align:justify;
+    text-align:left;
+
+    max-width:100%;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
 
 }
 
 }
 
-@media(max-width:600px){
 
-.hero-right h1{
-
-font-size:38px;
-
-}
+@media (max-width:600px){
 
 .profile-image{
 
-width:210px;
+    width:210px;
 
-height:210px;
+    height:210px;
+
+}
+
+.hero-right h1{
+
+    font-size:34px;
 
 }
 
 .hero-contact{
 
-flex-direction:column;
+    justify-content:center;
 
-gap:12px;
+    flex-wrap:wrap;
+
+    gap:14px;
+
+}
+
+.contact-item{
+
+    font-size:14px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.btn{
+
+    width:100%;
+
+    max-width:260px;
 
 }
 

@@ -11,7 +11,7 @@
     --blue-tint:#E8F0FE;
     --ph-bg:#F4F8FF;
     --ph-border:#B9CDEF;
-    --maxw:920px;
+    --maxw:1120px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}

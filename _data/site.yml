@@ -2,14 +2,19 @@ name: Muhammad Adil
 brand: MUHAMMAD ADIL
 role: Lecturer • AI / Medical Imaging / Healthcare
 profile_image: /assets/profile.png
+bio: I completed my MS in Computer Science from [COMSATS University Islamabad
+  (CUI)](https://www.comsats.edu.pk/), under the supervision of [Prof. Dr.
+  Nadeem Javaid](https://www.njavaid.com/). My research interests include
+  Artificial Intelligence, Machine Learning, Data Analytics, Medical Imaging,
+  Pattern Recognition and Healthcare Applications. I am currently serving as a
+  Lecturer in the Department of Computing and Intelligent Systems at [University
+  of Rawalpindi](https://www.uor.edu.pk/), Rawalpindi, Pakistan.
 email: madilkhancui@gmail.com
-phone: "+92 332 6239995"
+phone: +92 332 6239995
 location: Rawalpindi, Pakistan
 linkedin: https://www.linkedin.com/in/muhammadadil1496/
 researchgate: https://www.researchgate.net/profile/Muhammad-Adil-71
 orcid: https://orcid.org/0009-0009-4761-0109
-bio: >-
-  I completed my MS in Computer Science from [COMSATS University Islamabad (CUI)](https://www.comsats.edu.pk/), under the supervision of [Prof. Dr. Nadeem Javaid](https://www.njavaid.com/). My research interests include Artificial Intelligence, Machine Learning, Data Analytics, Medical Imaging, Pattern Recognition and Healthcare Applications. I am currently serving as a Lecturer in the Department of Computing and Intelligent Systems at [University of Rawalpindi](https://www.uor.edu.pk/), Rawalpindi, Pakistan.
 cv_label: Adil CV.pdf
 cv_url: https://drive.google.com/file/d/1M1P-nXqx8VgeApUzHAeYGuhz1lWXQ77Y/view?usp=sharing
 research_interests:
@@ -18,18 +23,19 @@ research_interests:
   - Data Analytics
   - Machine Learning
   - Deep Learning
-supervision: No students currently under supervision. This section will be updated as supervision activity begins.
+supervision: No students currently under supervision. This section will be
+  updated as supervision activity begins.
 highlights_heading: Featured Highlights
 highlights_subtitle: Academic Journey • Achievements • Research • Teaching
-qualification_heading: Qualification
+qualification_heading: Qualifications
 qualification_subtitle: Education history, most recent first
 research_heading: Research
 research_subtitle: Publications
 research_interests_heading: Research Interests
 supervision_heading: Supervision
-experience_heading: Experience
+experience_heading: Experiences
 experience_subtitle: Teaching and research roles, most recent first
-cv_heading: CV
+cv_heading: Curriculum Vitae
 cv_subtitle: Full curriculum vitae
 certificates_heading: Certificates / Achievements
 certificates_subtitle: Courses, reviewing credits, training and awards

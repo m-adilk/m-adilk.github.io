@@ -122,11 +122,11 @@ title="ORCID">
 
 </div>
 
-        <p class="hero-bio">
+        <div class="hero-bio">
 
-            {{ site.data.site.bio }}
+            {{ site.data.site.bio | markdownify }}
 
-        </p>
+        </div>
 
         <div class="hero-buttons">
 

@@ -12,7 +12,7 @@ content:
       - { name: brand, label: Navigation brand, type: string, required: true }
       - { name: role, label: Professional headline, type: string, required: true }
       - { name: profile_image, label: Profile photo, type: image, required: true }
-      - { name: bio, label: Biography, type: text, required: true }
+      - { name: bio, label: Biography, type: rich-text, required: true, description: "Select text in the editor and use the link button to add university, supervisor, or other hyperlinks." }
       - { name: email, label: Email, type: string, required: true }
       - { name: phone, label: Phone, type: string, required: true }
       - { name: location, label: Location, type: string, required: true }

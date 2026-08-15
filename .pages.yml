@@ -23,6 +23,24 @@ content:
       - { name: cv_url, label: CV link, type: string, required: true }
       - { name: research_interests, label: Research interests, type: string, list: true, required: true }
       - { name: supervision, label: Supervision note, type: text, required: true }
+      - { name: highlights_heading, label: Highlights heading, type: string, required: true }
+      - { name: highlights_subtitle, label: Highlights subtitle, type: string, required: true }
+      - { name: qualification_heading, label: Qualification heading, type: string, required: true }
+      - { name: qualification_subtitle, label: Qualification subtitle, type: string, required: true }
+      - { name: research_heading, label: Research heading, type: string, required: true }
+      - { name: research_subtitle, label: Research subtitle, type: string, required: true }
+      - { name: research_interests_heading, label: Research interests heading, type: string, required: true }
+      - { name: supervision_heading, label: Supervision heading, type: string, required: true }
+      - { name: experience_heading, label: Experience heading, type: string, required: true }
+      - { name: experience_subtitle, label: Experience subtitle, type: string, required: true }
+      - { name: cv_heading, label: CV heading, type: string, required: true }
+      - { name: cv_subtitle, label: CV subtitle, type: string, required: true }
+      - { name: certificates_heading, label: Certificates heading, type: string, required: true }
+      - { name: certificates_subtitle, label: Certificates subtitle, type: string, required: true }
+      - { name: gallery_heading, label: Gallery heading, type: string, required: true }
+      - { name: gallery_subtitle, label: Gallery subtitle, type: string, required: true }
+      - { name: contact_heading, label: Contact heading, type: string, required: true }
+      - { name: contact_subtitle, label: Contact subtitle, type: string, required: true }
 
   - name: highlights
     label: Featured Highlights

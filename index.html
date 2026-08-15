@@ -25,13 +25,13 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
     <span class="brand">{{ site.data.site.brand }}</span>
     <ul class="navlinks">
       <li><a href="#home">Home</a></li>
-      <li><a href="#qualification">Qualification</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#certificates">Certificates</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#qualification">{{ site.data.site.qualification_heading }}</a></li>
+      <li><a href="#research">{{ site.data.site.research_heading }}</a></li>
+      <li><a href="#experience">{{ site.data.site.experience_heading }}</a></li>
+      <li><a href="#cv">{{ site.data.site.cv_heading }}</a></li>
+      <li><a href="#certificates">{{ site.data.site.certificates_heading }}</a></li>
+      <li><a href="#gallery">{{ site.data.site.gallery_heading }}</a></li>
+      <li><a href="#contact">{{ site.data.site.contact_heading }}</a></li>
     </ul>
     <button class="hamburger" id="hamBtn" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -40,13 +40,13 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
 </nav>
 <div class="mobile-panel" id="mobilePanel">
   <a href="#home">Home</a>
-  <a href="#qualification">Qualification</a>
-  <a href="#research">Research</a>
-  <a href="#experience">Experience</a>
-  <a href="#cv">CV</a>
-  <a href="#certificates">Certificates</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
+  <a href="#qualification">{{ site.data.site.qualification_heading }}</a>
+  <a href="#research">{{ site.data.site.research_heading }}</a>
+  <a href="#experience">{{ site.data.site.experience_heading }}</a>
+  <a href="#cv">{{ site.data.site.cv_heading }}</a>
+  <a href="#certificates">{{ site.data.site.certificates_heading }}</a>
+  <a href="#gallery">{{ site.data.site.gallery_heading }}</a>
+  <a href="#contact">{{ site.data.site.contact_heading }}</a>
 </div>
 
 
@@ -159,10 +159,10 @@ title="ORCID">
 
 <div class="wrap">
 
-<h2 class="reveal">Featured Highlights</h2>
+<h2 class="reveal">{{ site.data.site.highlights_heading }}</h2>
 
 <p class="section-sub reveal">
-Academic Journey • Achievements • Research • Teaching
+{{ site.data.site.highlights_subtitle }}
 </p>
 
 <div class="highlight-slider">
@@ -195,8 +195,8 @@ Academic Journey • Achievements • Research • Teaching
 
 <section id="qualification">
   <div class="wrap">
-    <h2 class="reveal">Qualification</h2>
-    <p class="section-sub reveal">Education history, most recent first</p>
+    <h2 class="reveal">{{ site.data.site.qualification_heading }}</h2>
+    <p class="section-sub reveal">{{ site.data.site.qualification_subtitle }}</p>
     <div class="timeline">
       {% assign qualifications = site.qualifications | sort: "order" %}
       {% for qualification in qualifications %}
@@ -212,8 +212,8 @@ Academic Journey • Achievements • Research • Teaching
 
 <section id="research" class="section-soft">
   <div class="wrap">
-    <h2 class="reveal">Research</h2>
-    <p class="section-sub reveal">Publications</p>
+    <h2 class="reveal">{{ site.data.site.research_heading }}</h2>
+    <p class="section-sub reveal">{{ site.data.site.research_subtitle }}</p>
     <div class="grid reveal">
       {% assign publications = site.research | sort: "date" | reverse %}
       {% for publication in publications %}
@@ -225,19 +225,20 @@ Academic Journey • Achievements • Research • Teaching
       </div>
       {% endfor %}
     </div>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin:32px 0 10px; color:var(--blue-deep);" class="reveal">{{ site.data.site.research_interests_heading }}</h3>
     <div class="tags reveal">
       {% for interest in site.data.site.research_interests %}<span class="tag">{{ interest }}</span>{% endfor %}
     </div>
 
-    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin:42px 0 10px; color:var(--blue-deep);" class="reveal">Supervision</h3>
+    <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin:42px 0 10px; color:var(--blue-deep);" class="reveal">{{ site.data.site.supervision_heading }}</h3>
     <div class="note-box reveal">{{ site.data.site.supervision }}</div>
   </div>
 </section>
 
 <section id="experience">
   <div class="wrap">
-    <h2 class="reveal">Experience</h2>
-    <p class="section-sub reveal">Teaching and research roles, most recent first</p>
+    <h2 class="reveal">{{ site.data.site.experience_heading }}</h2>
+    <p class="section-sub reveal">{{ site.data.site.experience_subtitle }}</p>
     <div class="timeline">
       {% assign experiences = site.experiences | sort: "order" %}
       {% for experience in experiences %}
@@ -253,8 +254,8 @@ Academic Journey • Achievements • Research • Teaching
 
 <section id="cv" class="section-soft">
   <div class="wrap">
-    <h2 class="reveal">CV</h2>
-    <p class="section-sub reveal">Full curriculum vitae</p>
+    <h2 class="reveal">{{ site.data.site.cv_heading }}</h2>
+    <p class="section-sub reveal">{{ site.data.site.cv_subtitle }}</p>
     <div class="cv-card reveal">
       <div class="ph cv-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
@@ -270,8 +271,8 @@ Academic Journey • Achievements • Research • Teaching
 
 <section id="certificates">
   <div class="wrap">
-    <h2 class="reveal">Certificates / Achievements</h2>
-    <p class="section-sub reveal">Courses, reviewing credits, training and awards</p>
+    <h2 class="reveal">{{ site.data.site.certificates_heading }}</h2>
+    <p class="section-sub reveal">{{ site.data.site.certificates_subtitle }}</p>
     {% assign certificate_categories = "Courses|Achievements / Trainings" | split: "|" %}
     {% for category in certificate_categories %}
       <h3 class="cert-group-title reveal">{{ category }}</h3>
@@ -296,10 +297,10 @@ Academic Journey • Achievements • Research • Teaching
 
 <div class="wrap">
 
-<h2 class="reveal">Gallery Section</h2>
+<h2 class="reveal">{{ site.data.site.gallery_heading }}</h2>
 
 <p class="section-sub reveal">
-Academic Visits • Conferences • Teaching • Outdoor Activities
+{{ site.data.site.gallery_subtitle }}
 </p>
 
 <div class="swiper journeySwiper">
@@ -335,9 +336,9 @@ Academic Visits • Conferences • Teaching • Outdoor Activities
 
 <div class="wrap">
 
-<h2>Contact</h2>
+<h2>{{ site.data.site.contact_heading }}</h2>
 
-<p class="section-sub">GET IN TOUCH</p>
+<p class="section-sub">{{ site.data.site.contact_subtitle }}</p>
 
 <div class="contact-grid">
 

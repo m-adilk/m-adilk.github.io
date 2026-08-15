@@ -13,6 +13,18 @@ collections:
   pages:
     output: true
     permalink: /pages/:name/
+  highlights:
+    output: true
+    permalink: /highlights/:name/
+  qualifications:
+    output: true
+    permalink: /qualifications/:name/
+  research:
+    output: true
+    permalink: /research/:name/
+  experiences:
+    output: true
+    permalink: /experience/:name/
 
 defaults:
   - scope:
@@ -30,7 +42,26 @@ defaults:
       type: pages
     values:
       layout: page
+  - scope:
+      path: ""
+      type: highlights
+    values:
+      layout: highlight
+  - scope:
+      path: ""
+      type: qualifications
+    values:
+      layout: qualification
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: publication
+  - scope:
+      path: ""
+      type: experiences
+    values:
+      layout: experience
 
 exclude:
   - README.md
-

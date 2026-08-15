@@ -1,0 +1,12 @@
+---
+layout: content
+---
+<article class="detail-article wrap">
+  <p class="eyebrow">Research{% if page.status %} · {{ page.status }}{% endif %}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="detail-lead">{{ page.venue }}</p>
+  <p><strong>Authors:</strong> {{ page.authors }}</p>
+  <div class="prose">{{ content }}</div>
+  {% if page.doi_url %}<a class="btn btn-primary detail-action" href="{{ page.doi_url }}" target="_blank" rel="noopener">View publication</a>{% endif %}
+</article>
+

@@ -6,7 +6,7 @@ layout: null
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Adil</title>
+<title>{{ site.data.site.name }}</title>
 <meta name="description" content="Muhammad Adil — Lecturer, Department of Computing and Intelligent Systems, University of Rawalpindi. Qualifications, experience, research, certificates and gallery.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
 
 <nav>
   <div class="wrap">
-    <span class="brand">MUHAMMAD ADIL</span>
+    <span class="brand">{{ site.data.site.brand }}</span>
     <ul class="navlinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#qualification">Qualification</a></li>
@@ -58,8 +58,8 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
     <!-- LEFT -->
     <div class="hero-left">
 
-        <img src="assets/profile.png"
-             alt="Muhammad Adil"
+        <img src="{{ site.data.site.profile_image | relative_url }}"
+             alt="{{ site.data.site.name | escape }}"
              class="profile-image">
 
     </div>
@@ -67,19 +67,19 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
     <!-- RIGHT -->
     <div class="hero-right">
 
-        <h1 class="hero-name">Muhammad Adil</h1>
+        <h1 class="hero-name">{{ site.data.site.name }}</h1>
 
         <p class="hero-role">
-            •&nbsp; Lecturer •&nbsp; AI/ Medical Imaging/ Healthcare
+            {{ site.data.site.role }}
         </p>
 
   <div class="hero-contact">
 
-<a href="mailto:madilkhancui@gmail.com" class="contact-item">
+<a href="mailto:{{ site.data.site.email }}" class="contact-item">
 
 <i class="fa-regular fa-envelope"></i>
 
-<span>madilkhancui@gmail.com</span>
+<span>{{ site.data.site.email }}</span>
 
 </a>
 
@@ -87,12 +87,12 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
 
 <i class="fa-solid fa-phone"></i>
 
-<span>+92 332 6239995</span>
+<span>{{ site.data.site.phone }}</span>
 
 </div>
 
 <a class="icon-link"
-href="https://www.linkedin.com/in/muhammadadil1496/"
+href="{{ site.data.site.linkedin }}"
 target="_blank"
 title="LinkedIn">
 
@@ -101,7 +101,7 @@ title="LinkedIn">
 </a>
 
 <a class="icon-link"
-href="https://www.researchgate.net/profile/Muhammad-Adil-71"
+href="{{ site.data.site.researchgate }}"
 target="_blank"
 title="ResearchGate">
 
@@ -111,7 +111,7 @@ title="ResearchGate">
 
 
 <a class="icon-link"
-href="https://orcid.org/0009-0009-4761-0109"
+href="{{ site.data.site.orcid }}"
 target="_blank"
 rel="noopener noreferrer"
 title="ORCID">
@@ -124,17 +124,14 @@ title="ORCID">
 
         <p class="hero-bio">
 
-            I completed my MS in Computer Science from COMSATS University Islamabad<a href="https://www.comsats.edu.pk/" target="_blank" rel="noopener noreferrer" class="CUI-link"> (CUI) </a>,
-             under the supervision of <a href="https://www.njavaid.com/" target="_blank" rel="noopener noreferrer" class="supervisor-link"> Prof. Dr. Nadeem Javaid. </a>
-
-My research interests include Artificial Intelligence, Machine Learning, Data Analytics, Medical Imaging, Pattern Recognition and Healthcare Applications. I am currently serving as a Lecturer in the Department of Computing and Intelligent Systems at <a href="https://www.uor.edu.pk/" target="_blank" rel="noopener noreferrer" class="UOR-link"> University of Rawalpindi, </a> Rawalpindi | Pakistan.
+            {{ site.data.site.bio }}
 
         </p>
 
         <div class="hero-buttons">
 
             <a class="btn btn-primary"
-               href="https://drive.google.com/file/d/1M1P-nXqx8VgeApUzHAeYGuhz1lWXQ77Y/view?usp=sharing"
+               href="{{ site.data.site.cv_url }}"
                target="_blank">
 
                 Download CV
@@ -172,143 +169,18 @@ Academic Journey • Achievements • Research • Teaching
 
 <div class="highlight-track">
 
-<!-- ================== CARD 1 ================== -->
-
-<a class="highlight-card"
-href="assets/certs/facultydev.pdf"
-target="_blank">
-
-<img src="assets/certs/facultydev-1.png">
-
+{% assign highlights = site.highlights | sort: "order" %}
+{% for duplicate in (1..2) %}
+{% for highlight in highlights %}
+<a class="highlight-card" href="{{ highlight.url | relative_url }}">
+<img src="{{ highlight.image | relative_url }}" alt="{{ highlight.title | escape }}">
 <div class="highlight-info">
-
-<h4>Professional Development</h4>
-
-<p>University of Rawalpindi</p>
-
+<h4>{{ highlight.title }}</h4>
+<p>{{ highlight.subtitle }}</p>
 </div>
-
 </a>
-
-<!-- ================== CARD 2 ================== -->
-
-<a class="highlight-card"
-href="assets/certs/Certificate_BSPC_Recognised.pdf"
-target="_blank">
-
-<img src="assets/certs/Certificate_BSPC_Recognised-1.png">
-
-<div class="highlight-info">
-
-<h4>Elsevier Reviewer</h4>
-
-<p>Biomedical Signal Processing & Control</p>
-
-</div>
-
-</a>
-
-<!-- ================== CARD 3 ================== -->
-
-<a class="highlight-card"
-href="assets/certs/ibm.pdf"
-target="_blank">
-
-<img src="assets/certs/ibm-1.png">
-
-<div class="highlight-info">
-
-<h4>IBM AI Fundamentals</h4>
-
-<p>IBM SkillsBuild</p>
-
-</div>
-
-</a>
-
-<!-- ================== CARD 4 ================== -->
-
-<a class="highlight-card"
-href="assets/certs/genai.pdf"
-target="_blank">
-
-<img src="assets/certs/genai-1.png">
-
-<div class="highlight-info">
-
-<h4>Generative AI</h4>
-
-<p>Application Developer</p>
-
-</div>
-
-</a>
-
-<!-- Duplicate for Infinite Scroll -->
-
-<a class="highlight-card"
-href="assets/certs/facultydev.pdf"
-target="_blank">
-
-<img src="assets/certs/facultydev-1.png">
-
-<div class="highlight-info">
-
-<h4>Professional Development</h4>
-
-<p>University of Rawalpindi</p>
-
-</div>
-
-</a>
-
-<a class="highlight-card"
-href="assets/certs/Certificate_BSPC_Recognised.pdf"
-target="_blank">
-
-<img src="assets/certs/Certificate_BSPC_Recognised-1.png">
-
-<div class="highlight-info">
-
-<h4>Elsevier Reviewer</h4>
-
-<p>Biomedical Signal Processing & Control</p>
-
-</div>
-
-</a>
-
-<a class="highlight-card"
-href="assets/certs/ibm.pdf"
-target="_blank">
-
-<img src="assets/certs/ibm-1.png">
-
-<div class="highlight-info">
-
-<h4>IBM AI Fundamentals</h4>
-
-<p>IBM SkillsBuild</p>
-
-</div>
-
-</a>
-
-<a class="highlight-card"
-href="assets/certs/genai.pdf"
-target="_blank">
-
-<img src="assets/certs/genai-1.png">
-
-<div class="highlight-info">
-
-<h4>Generative AI</h4>
-
-<p>Application Developer</p>
-
-</div>
-
-</a>
+{% endfor %}
+{% endfor %}
 
 </div>
 
@@ -326,17 +198,14 @@ target="_blank">
     <h2 class="reveal">Qualification</h2>
     <p class="section-sub reveal">Education history, most recent first</p>
     <div class="timeline">
+      {% assign qualifications = site.qualifications | sort: "order" %}
+      {% for qualification in qualifications %}
       <div class="tl-item reveal">
-        <span class="tl-date">2021 – 2023</span>
-        <h4>MS, Computer Science</h4>
-        <p>COMSATS University Islamabad (CUI), Islamabad Campus, Pakistan</p>
+        <span class="tl-date">{{ qualification.period }}</span>
+        <h4><a href="{{ qualification.url | relative_url }}">{{ qualification.title }}</a></h4>
+        <p>{{ qualification.institution }}</p>
       </div>
-      <div class="tl-item reveal">
-        <span class="tl-date">2017 – 2021</span>
-        <h4>BS, Information Technology</h4>
-        <p>University of Education Lahore, Dera Ghazi Khan Campus, Punjab, Pakistan</p>
-      </div>
-     
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -346,28 +215,22 @@ target="_blank">
     <h2 class="reveal">Research</h2>
     <p class="section-sub reveal">Publications</p>
     <div class="grid reveal">
+      {% assign publications = site.research | sort: "date" | reverse %}
+      {% for publication in publications %}
       <div class="card">
-        <h3>A Deep Learning Framework for Heart Disease Prediction with Explainable Artificial Intelligence</h3>
-        <div class="meta">Computers, Materials &amp; Continua · Vol. 86(1), pp. 1–20 · 2025</div>
-        <p>Adil, M., Javaid, N., Ahmed, I., Ahmed, A., &amp; Alrajeh, N.</p>
-        <a class="doi" href="https://doi.org/10.32604/cmc.2025.071215" target="_blank" rel="noopener">doi.org/10.32604/cmc.2025.071215 →</a>
+        <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
+        <div class="meta">{{ publication.venue }}{% if publication.status %} · <b>{{ publication.status }}</b>{% endif %}</div>
+        <p>{{ publication.authors }}</p>
+        {% if publication.doi_url %}<a class="doi" href="{{ publication.doi_url }}" target="_blank" rel="noopener">View publication →</a>{% endif %}
       </div>
-      <div class="card">
-        <h3>Deep Learning for Heart Disease Prediction: Integrating Hybrid Models and Balancing Techniques for Improved Accuracy</h3>
-        <div class="meta">Journal of Cloud Computing (Impact Factor 3.4) · <b>Under Review</b>· 2026</div>
-        <p>Muhammad Adil, Nadeem Javaid, et al.</p>
-      </div>
+      {% endfor %}
     </div>
     <div class="tags reveal">
-      <span class="tag">Data Science</span>
-      <span class="tag">Healthcare Systems</span>
-      <span class="tag">Data Analytics</span>
-      <span class="tag">Machine Learning</span>
-      <span class="tag">Deep Learning</span>
+      {% for interest in site.data.site.research_interests %}<span class="tag">{{ interest }}</span>{% endfor %}
     </div>
 
     <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin:42px 0 10px; color:var(--blue-deep);" class="reveal">Supervision</h3>
-    <div class="note-box reveal">No students currently under supervision. This section will be updated as supervision activity begins.</div>
+    <div class="note-box reveal">{{ site.data.site.supervision }}</div>
   </div>
 </section>
 
@@ -376,26 +239,14 @@ target="_blank">
     <h2 class="reveal">Experience</h2>
     <p class="section-sub reveal">Teaching and research roles, most recent first</p>
     <div class="timeline">
+      {% assign experiences = site.experiences | sort: "order" %}
+      {% for experience in experiences %}
       <div class="tl-item reveal">
-        <span class="tl-date">Sep 25, 2025 – Present</span>
-        <h4>Lecturer, Computing and Intelligent Systems</h4>
-        <p>University of Rawalpindi, Rawalpindi 46000, Pakistan</p>
+        <span class="tl-date">{{ experience.period }}</span>
+        <h4><a href="{{ experience.url | relative_url }}">{{ experience.title }}</a></h4>
+        <p>{{ experience.organization }}</p>
       </div>
-      <div class="tl-item reveal">
-        <span class="tl-date">Oct 17, 2023 – Sep 22, 2025</span>
-        <h4>Lecturer (Contract-based), Computer Science</h4>
-        <p>Federal Urdu University of Arts, Science and Technology, Islamabad, Pakistan</p>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-date">Oct 1, 2021 – Sep 30, 2023</span>
-        <h4>Research Associate</h4>
-        <p>ComSens Research Lab, Department of Computer Science, COMSATS University Islamabad — provided guidance and mentorship to junior researchers, offering support for their research projects.</p>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-date">Oct 2020 – Feb 2021</span>
-        <h4>Internee</h4>
-        <p>University of Education, Lahore, Dera Ghazi Khan Campus — provided technical support to campus faculty during COVID-19.</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -409,10 +260,10 @@ target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
       </div>
       <div class="cv-text">
-        <strong>Adil CV.pdf</strong>
+        <strong>{{ site.data.site.cv_label }}</strong>
         <span>PDF document</span>
       </div>
-      <a class="btn btn-primary" href="https://drive.google.com/file/d/1M1P-nXqx8VgeApUzHAeYGuhz1lWXQ77Y/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn btn-primary" href="{{ site.data.site.cv_url }}" target="_blank" rel="noopener">Download CV</a>
     </div>
   </div>
 </section>
@@ -490,19 +341,19 @@ Academic Visits • Conferences • Teaching • Outdoor Activities
 
 <div class="contact-grid">
 
-<a href="mailto:madilkhancui@gmail.com">
+<a href="mailto:{{ site.data.site.email }}">
 <i class="fa-regular fa-envelope"></i>
-<span>madilkhancui@gmail.com</span>
+<span>{{ site.data.site.email }}</span>
 </a>
 
 <div>
 <i class="fa-solid fa-phone"></i>
-<span>+92 332 6239995</span>
+<span>{{ site.data.site.phone }}</span>
 </div>
 
 <div>
 <i class="fa-solid fa-location-dot"></i>
-<span>Rawalpindi, Pakistan</span>
+<span>{{ site.data.site.location }}</span>
 </div>
 
 </div>
@@ -510,7 +361,7 @@ Academic Visits • Conferences • Teaching • Outdoor Activities
 <div class="footer-social">
 
 <a class="icon-link"
-href="https://www.linkedin.com/in/muhammadadil1496/"
+href="{{ site.data.site.linkedin }}"
 target="_blank">
 
 <i class="fab fa-linkedin-in"></i>
@@ -518,7 +369,7 @@ target="_blank">
 </a>
 
 <a class="icon-link"
-href="https://www.researchgate.net/profile/Muhammad-Adil-71"
+href="{{ site.data.site.researchgate }}"
 target="_blank">
 
 <i class="ai ai-researchgate"></i>
@@ -526,7 +377,7 @@ target="_blank">
 </a>
 
 <a class="icon-link"
-href="https://orcid.org/0009-0009-4761-0109"
+href="{{ site.data.site.orcid }}"
 target="_blank"
 rel="noopener noreferrer"
 title="ORCID">
@@ -540,7 +391,7 @@ title="ORCID">
 
 <div class="foot-note">
 
-© 2026 Muhammad Adil<br>
+© {{ 'now' | date: '%Y' }} {{ site.data.site.name }}<br>
 
 
 </div>

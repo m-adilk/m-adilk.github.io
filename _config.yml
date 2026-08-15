@@ -1,0 +1,36 @@
+title: Muhammad Adil
+description: Lecturer, researcher, and AI/medical imaging professional.
+url: "https://m-adilk.github.io"
+baseurl: ""
+
+collections:
+  certificates:
+    output: true
+    permalink: /certificates/:name/
+  galleries:
+    output: true
+    permalink: /gallery/:name/
+  pages:
+    output: true
+    permalink: /pages/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: certificates
+    values:
+      layout: certificate
+  - scope:
+      path: ""
+      type: galleries
+    values:
+      layout: gallery
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+exclude:
+  - README.md
+

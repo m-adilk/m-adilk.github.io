@@ -1,0 +1,50 @@
+---
+layout: content
+---
+<article class="detail-article wrap">
+  <p class="eyebrow">Gallery · {{ page.display_date }}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="detail-lead">{{ page.summary }}</p>
+  {% if content != empty %}<div class="prose">{{ content }}</div>{% endif %}
+  <div class="photo-grid">
+    {% for image in page.images %}
+      <button class="photo-button" type="button" data-index="{{ forloop.index0 }}" aria-label="Open photo {{ forloop.index }} of {{ page.images | size }}">
+        <img src="{{ image | relative_url }}" alt="{{ page.title | escape }} — photo {{ forloop.index }}" loading="lazy">
+      </button>
+    {% endfor %}
+  </div>
+</article>
+<div class="album-lightbox" id="albumLightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+  <button class="gallery-close" type="button" aria-label="Close">&times;</button>
+  <button class="gallery-prev" type="button" aria-label="Previous photo">&#10094;</button>
+  <img id="albumImage" src="" alt="">
+  <button class="gallery-next" type="button" aria-label="Next photo">&#10095;</button>
+  <div class="gallery-counter" id="albumCounter"></div>
+</div>
+<script>
+  const photos = [{% for image in page.images %}"{{ image | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+  const box = document.getElementById('albumLightbox');
+  const image = document.getElementById('albumImage');
+  const counter = document.getElementById('albumCounter');
+  let active = 0;
+  function showPhoto(index) {
+    active = (index + photos.length) % photos.length;
+    image.src = photos[active];
+    image.alt = `{{ page.title | escape }} — photo ${active + 1}`;
+    counter.textContent = `${active + 1} / ${photos.length}`;
+  }
+  function openPhoto(index) { showPhoto(index); box.classList.add('show'); box.setAttribute('aria-hidden', 'false'); }
+  function closePhotos() { box.classList.remove('show'); box.setAttribute('aria-hidden', 'true'); }
+  document.querySelectorAll('.photo-button').forEach(button => button.addEventListener('click', () => openPhoto(Number(button.dataset.index))));
+  box.querySelector('.gallery-close').addEventListener('click', closePhotos);
+  box.querySelector('.gallery-prev').addEventListener('click', () => showPhoto(active - 1));
+  box.querySelector('.gallery-next').addEventListener('click', () => showPhoto(active + 1));
+  box.addEventListener('click', event => { if (event.target === box) closePhotos(); });
+  document.addEventListener('keydown', event => {
+    if (!box.classList.contains('show')) return;
+    if (event.key === 'Escape') closePhotos();
+    if (event.key === 'ArrowLeft') showPhoto(active - 1);
+    if (event.key === 'ArrowRight') showPhoto(active + 1);
+  });
+</script>
+

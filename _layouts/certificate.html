@@ -1,0 +1,12 @@
+---
+layout: content
+---
+<article class="detail-article wrap">
+  <p class="eyebrow">{{ page.category }}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="detail-lead">{{ page.issuer }}{% if page.display_date %} · {{ page.display_date }}{% endif %}</p>
+  <img class="certificate-full" src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}">
+  {% if content != empty %}<div class="prose">{{ content }}</div>{% endif %}
+  {% if page.document %}<a class="btn btn-primary detail-action" href="{{ page.document | relative_url }}" target="_blank" rel="noopener">Open certificate PDF</a>{% endif %}
+</article>
+

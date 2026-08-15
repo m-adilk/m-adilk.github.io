@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -418,72 +421,23 @@ target="_blank">
   <div class="wrap">
     <h2 class="reveal">Certificates / Achievements</h2>
     <p class="section-sub reveal">Courses, reviewing credits, training and awards</p>
-
-    <h3 class="cert-group-title reveal">Courses</h3>
-    <div class="reveal">
-      <a class="cert" href="assets/certs/genai.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/genai-1.png" alt="Generative AI Application Developer Certificate"></div>
-        <div class="cert-info">
-          <div class="title">Generative AI Application Developer Certificate</div>
-          <div class="org">UETIANS Lahore Endowment Foundation × NCEAC–HEC × PAKANGLES · 17 March 2026</div>
-        </div>
-      </a>
-      <a class="cert" href="assets/certs/ibm.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/ibm-1.png" alt="IBM Artificial Intelligence Fundamentals Certificate"></div>
-        <div class="cert-info">
-          <div class="title">Artificial Intelligence Fundamentals</div>
-          <div class="org">IBM SkillsBuild · 27 Jul 2025</div>
-        </div>
-      </a>
-      <a class="cert" href="assets/certs/udemy.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/udemy-1.png" alt="Udemy Spark and Python for Big Data with PySpark Certificate"></div>
-        <div class="cert-info">
-          <div class="title">Spark and Python for Big Data with PySpark</div>
-          <div class="org">Udemy · 3 Dec 2022</div>
-        </div>
-      </a>
-    </div>
-
-    <h3 class="cert-group-title reveal">Achievements / Trainings</h3>
-    <div class="reveal">
-      <a class="cert" href="assets/certs/fit.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/fit-1.png" alt="FIT 2025 Reviewer Certificate of Appreciation"></div>
-        <div class="cert-info">
-          <div class="title">Certificate of Appreciation — Reviewer, 22nd International Conference on Frontiers of Information Technology</div>
-          <div class="org">COMSATS University Islamabad · 15–16 Dec 2025</div>
-        </div>
-      </a>
-      <a class="cert" href="assets/certs/facultydev.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/facultydev-1.png" alt="UOR Professional Development Program Certificate"></div>
-        <div class="cert-info">
-          <div class="title">Professional Development Program — Advancing Teaching and Learning Practices</div>
-          <div class="org">University of Rawalpindi · 25–26 Sept 2025</div>
-        </div>
-      </a>
-  <a class="cert" href="./assets/certs/Certificate_BSPC_Recognised.pdf" target="_blank" rel="noopener">
-  <div class="cert-thumb filled">
-    <img src="./assets/certs/Certificate_BSPC_Recognised-1.png" alt="Certificate of Reviewing">
-  </div>
-  <div class="cert-info">
-    <div class="title">Certificate of Reviewing — Biomedical Signal Processing and Control</div>
-    <div class="org">Elsevier · June 2025</div>
-  </div>
-</a>
-      <a class="cert" href="assets/certs/peef.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/peef-1.png" alt="PEEF Certificate of Scholarship"></div>
-        <div class="cert-info">
-          <div class="title">Punjab Educational Endowment Fund (PEEF) Master Level Scholarship</div>
-          <div class="org">MS Computer Science · 2021–2023</div>
-        </div>
-      </a>
-      <a class="cert" href="assets/certs/ispr.pdf" target="_blank" rel="noopener">
-        <div class="cert-thumb filled"><img src="assets/certs/ispr-1.png" alt="ISPR Twitter Picture Competition Certificate"></div>
-        <div class="cert-info">
-          <div class="title">Certificate of Participation — Twitter Picture Competition, #PositivePakistan</div>
-          <div class="org">Director General, Inter Services Public Relations (DG ISPR) · 2018</div>
-        </div>
-      </a>
-    </div>
+    {% assign certificate_categories = "Courses|Achievements / Trainings" | split: "|" %}
+    {% for category in certificate_categories %}
+      <h3 class="cert-group-title reveal">{{ category }}</h3>
+      <div class="reveal">
+        {% assign certificates = site.certificates | where: "category", category | sort: "date" | reverse %}
+        {% for certificate in certificates %}
+          <a class="cert" href="{{ certificate.url | relative_url }}">
+            <div class="cert-thumb filled"><img src="{{ certificate.image | relative_url }}" alt="{{ certificate.title | escape }}"></div>
+            <div class="cert-info">
+              <div class="title">{{ certificate.title }}</div>
+              <div class="org">{{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</div>
+            </div>
+            <span class="item-arrow" aria-hidden="true">→</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endfor %}
   </div>
 </section>
 
@@ -500,42 +454,22 @@ Academic Visits • Conferences • Teaching • Outdoor Activities
 <div class="swiper journeySwiper">
 
 <div class="swiper-wrapper">
-
-<!-- EVENT 1 -->
-
+{% assign galleries = site.galleries | sort: "date" | reverse %}
+{% for gallery in galleries %}
 <div class="swiper-slide">
-
-<div class="journey-card" onclick="openGallery('uor')">
-
-<img src="assets/gallery/uor/cover.jpeg"
-alt="UOR Sports Week 2026">
-
+<a class="journey-card" href="{{ gallery.url | relative_url }}">
+<img src="{{ gallery.cover_image | relative_url }}" alt="{{ gallery.title | escape }}">
 <div class="journey-content">
-
-<h3>UOR Sports Week 2026</h3>
-
-<p>Team Wolf Captain</p>
-
+<h3>{{ gallery.title }}</h3>
+<p>{{ gallery.summary }}</p>
 <div class="journey-meta">
-
-<span>
-<i class="fa-regular fa-calendar"></i>
-June 2026
-</span>
-
-<span>
-<i class="fa-regular fa-images"></i>
-4 Photos
-</span>
-
+<span><i class="fa-regular fa-calendar"></i> {{ gallery.display_date }}</span>
+<span><i class="fa-regular fa-images"></i> {{ gallery.images | size }} Photos</span>
 </div>
-
 </div>
-
+</a>
 </div>
-
-</div>
-
+{% endfor %}
 </div>
 
 <div class="swiper-pagination"></div>
@@ -545,30 +479,6 @@ June 2026
 </div>
 
 </section>
-
-<!-- Academic Journey Lightbox -->
-
-<div id="galleryLightbox" class="gallery-lightbox">
-
-<button class="gallery-close" onclick="closeGallery()">
-&times;
-</button>
-
-<button class="gallery-prev" onclick="prevPhoto()">
-&#10094;
-</button>
-
-<img id="galleryImage" src="" alt="Gallery Photo">
-
-<button class="gallery-next" onclick="nextPhoto()">
-&#10095;
-</button>
-
-<div id="galleryCounter" class="gallery-counter">
-1 / 4
-</div>
-
-</div>
 
 <footer id="contact">
 
@@ -731,72 +641,6 @@ const journeySwiper = new Swiper(".journeySwiper", {
     },
 
 });
-/* ===============================
-   Academic Journey Gallery
-=============================== */
-
-const galleries = {
-
-uor:[
-
-"assets/gallery/uor/uor1.jpeg",
-
-"assets/gallery/uor/uor2.jpeg",
-
-"assets/gallery/uor/uor3.jpeg",
-
-"assets/gallery/uor/uor4.jpeg",
-
-]
-
-};
-
-let currentGallery=[];
-
-let currentIndex=0;
-
-function openGallery(name){
-
-currentGallery=galleries[name];
-
-currentIndex=0;
-
-document.getElementById("galleryLightbox").classList.add("show");
-
-showPhoto();
-
-}
-
-function showPhoto(){
-
-document.getElementById("galleryImage").src=currentGallery[currentIndex];
-
-document.getElementById("galleryCounter").innerHTML=(currentIndex+1)+" / "+currentGallery.length;
-
-}
-
-function nextPhoto(){
-
-currentIndex=(currentIndex+1)%currentGallery.length;
-
-showPhoto();
-
-}
-
-function prevPhoto(){
-
-currentIndex=(currentIndex-1+currentGallery.length)%currentGallery.length;
-
-showPhoto();
-
-}
-
-function closeGallery(){
-
-document.getElementById("galleryLightbox").classList.remove("show");
-
-}
-
 </script>
 
 </body>

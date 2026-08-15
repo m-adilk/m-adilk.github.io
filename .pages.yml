@@ -1,0 +1,78 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: certificates
+    label: Certificates & Achievements
+    type: collection
+    path: _certificates
+    filename: "{fields.slug}.md"
+    view:
+      fields: [image, title, issuer, category, display_date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: slug, label: URL name, type: string, required: true, pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      - name: category
+        label: Group
+        type: select
+        required: true
+        options:
+          values: [Courses, Achievements / Trainings]
+      - { name: issuer, label: Issuer / organization, type: string, required: true }
+      - { name: date, label: Date (for sorting), type: date, required: true }
+      - { name: display_date, label: Date shown on site, type: string, required: true, description: "Example: 17 March 2026" }
+      - { name: image, label: Certificate image, type: image, required: true }
+      - { name: document, label: Certificate PDF, type: file, required: false }
+      - { name: body, label: Description, type: rich-text, required: false }
+
+  - name: galleries
+    label: Gallery Albums
+    type: collection
+    path: _galleries
+    filename: "{fields.slug}.md"
+    view:
+      fields: [cover_image, title, display_date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Album title, type: string, required: true }
+      - { name: slug, label: URL name, type: string, required: true, pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      - { name: summary, label: Short summary, type: string, required: true }
+      - { name: date, label: Date (for sorting), type: date, required: true }
+      - { name: display_date, label: Date shown on site, type: string, required: true, description: "Example: June 2026" }
+      - { name: cover_image, label: Cover image, type: image, required: true }
+      - name: images
+        label: Album photos
+        type: image
+        required: true
+        list:
+          min: 1
+        options:
+          unique: true
+          rename: true
+      - { name: body, label: Album story, type: rich-text, required: false }
+
+  - name: pages
+    label: Extra Pages
+    type: collection
+    path: _pages
+    filename: "{fields.slug}.md"
+    view:
+      fields: [title, updated]
+      primary: title
+      sort: [title]
+    fields:
+      - { name: title, label: Page title, type: string, required: true }
+      - { name: slug, label: URL name, type: string, required: true, pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      - { name: updated, label: Last updated, type: date, required: true }
+      - { name: hero_image, label: Header image, type: image, required: false }
+      - { name: body, label: Page content, type: rich-text, required: true }

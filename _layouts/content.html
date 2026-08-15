@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} · {{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: page.title | strip_html | escape }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="content-page">
+  <nav class="detail-nav">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">MUHAMMAD ADIL</a>
+      <a class="back-link" href="{{ '/' | relative_url }}">← Back to home</a>
+    </div>
+  </nav>
+  <main class="detail-main">
+    {{ content }}
+  </main>
+  <footer class="detail-footer">
+    <div class="wrap">© {{ 'now' | date: '%Y' }} Muhammad Adil</div>
+  </footer>
+</body>
+</html>
+

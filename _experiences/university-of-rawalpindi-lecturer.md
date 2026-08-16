@@ -1,8 +1,7 @@
 ---
 title: Lecturer, Computing and Intelligent Systems
 slug: university-of-rawalpindi-lecturer
-period: Sep 25, 2025 – Present
+period: Sep 25, 2025 – Present (On Study Leave)
 organization: University of Rawalpindi, Rawalpindi 46000, Pakistan
 order: 1
 ---
-

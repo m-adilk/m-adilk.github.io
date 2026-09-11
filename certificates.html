@@ -1,0 +1,32 @@
+---
+layout: content
+title: Certificates and Achievements
+permalink: /certificates/
+---
+<article class="detail-article certificates-page wrap">
+  <p class="eyebrow">Credentials</p>
+  <h1>{{ site.data.site.certificates_page_heading }}</h1>
+  <p class="detail-lead">{{ site.data.site.certificates_page_subtitle }}</p>
+
+  {% assign certificate_categories = "Courses|Achievements / Trainings" | split: "|" %}
+  {% for category in certificate_categories %}
+    {% assign certificates = site.certificates | where: "category", category | sort: "date" | reverse %}
+    {% if certificates.size > 0 %}
+      <section class="certificate-category">
+        <h2>{{ category }}</h2>
+        <div class="certificate-index-list">
+          {% for certificate in certificates %}
+            <a class="certificate-index-item" href="{{ certificate.url | relative_url }}">
+              <img src="{{ certificate.image | relative_url }}" alt="{{ certificate.title | escape }}" loading="lazy">
+              <span class="certificate-index-copy">
+                <strong>{{ certificate.title }}</strong>
+                <span>{{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</span>
+              </span>
+              <span class="item-arrow" aria-hidden="true">→</span>
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+</article>

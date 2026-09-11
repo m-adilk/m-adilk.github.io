@@ -276,23 +276,22 @@ title="ORCID">
   <div class="wrap">
     <h2 class="reveal">{{ site.data.site.certificates_heading }}</h2>
     <p class="section-sub reveal">{{ site.data.site.certificates_subtitle }}</p>
-    {% assign certificate_categories = "Courses|Achievements / Trainings" | split: "|" %}
-    {% for category in certificate_categories %}
-      <h3 class="cert-group-title reveal">{{ category }}</h3>
       <div class="reveal">
-        {% assign certificates = site.certificates | where: "category", category | sort: "date" | reverse %}
-        {% for certificate in certificates %}
+        {% assign certificates = site.certificates | sort: "date" | reverse %}
+        {% for certificate in certificates limit: 3 %}
           <a class="cert" href="{{ certificate.url | relative_url }}">
             <div class="cert-thumb filled"><img src="{{ certificate.image | relative_url }}" alt="{{ certificate.title | escape }}"></div>
             <div class="cert-info">
               <div class="title">{{ certificate.title }}</div>
-              <div class="org">{{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</div>
+              <div class="org">{{ certificate.category }} · {{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</div>
             </div>
             <span class="item-arrow" aria-hidden="true">→</span>
           </a>
         {% endfor %}
       </div>
-    {% endfor %}
+    <div class="section-action reveal">
+      <a class="btn btn-ghost" href="{{ '/certificates/' | relative_url }}">{{ site.data.site.certificates_view_all_label }}</a>
+    </div>
   </div>
 </section>
 

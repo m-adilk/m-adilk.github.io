@@ -40,6 +40,9 @@ content:
       - { name: cv_subtitle, label: CV subtitle, type: string, required: true }
       - { name: certificates_heading, label: Certificates heading, type: string, required: true }
       - { name: certificates_subtitle, label: Certificates subtitle, type: string, required: true }
+      - { name: certificates_view_all_label, label: View all certificates button, type: string, required: true }
+      - { name: certificates_page_heading, label: Certificates page heading, type: string, required: true }
+      - { name: certificates_page_subtitle, label: Certificates page subtitle, type: string, required: true }
       - { name: gallery_heading, label: Gallery heading, type: string, required: true }
       - { name: gallery_subtitle, label: Gallery subtitle, type: string, required: true }
       - { name: contact_heading, label: Contact heading, type: string, required: true }

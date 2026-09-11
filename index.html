@@ -277,21 +277,39 @@ title="ORCID">
   <div class="wrap">
     <h2 class="reveal">{{ site.data.site.certificates_heading }}</h2>
     <p class="section-sub reveal">{{ site.data.site.certificates_subtitle }}</p>
-      <div class="reveal">
-        {% assign certificates = site.certificates | sort: "date" | reverse %}
+    <h3 class="cert-group-title reveal">Courses</h3>
+    <div class="reveal">
+        {% assign certificates = site.certificates | where: "category", "Courses" | sort: "date" | reverse %}
         {% for certificate in certificates limit: 3 %}
           <a class="cert" href="{{ certificate.url | relative_url }}">
             <div class="cert-thumb filled"><img src="{{ certificate.image | relative_url }}" alt="{{ certificate.title | escape }}"></div>
             <div class="cert-info">
               <div class="title">{{ certificate.title }}</div>
-              <div class="org">{{ certificate.category }} · {{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</div>
+              <div class="org">{{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</div>
             </div>
             <span class="item-arrow" aria-hidden="true">→</span>
           </a>
         {% endfor %}
-      </div>
-    <div class="section-action section-action-split reveal">
+    </div>
+    <div class="section-action reveal">
       <a class="btn btn-ghost" href="{{ '/certificates/#courses' | relative_url }}">{{ site.data.site.certificates_view_all_courses_label }}</a>
+    </div>
+
+    <h3 class="cert-group-title reveal">Achievements / Trainings</h3>
+    <div class="reveal">
+      {% assign achievements = site.certificates | where: "category", "Achievements / Trainings" | sort: "date" | reverse %}
+      {% for certificate in achievements limit: 3 %}
+        <a class="cert" href="{{ certificate.url | relative_url }}">
+          <div class="cert-thumb filled"><img src="{{ certificate.image | relative_url }}" alt="{{ certificate.title | escape }}"></div>
+          <div class="cert-info">
+            <div class="title">{{ certificate.title }}</div>
+            <div class="org">{{ certificate.issuer }}{% if certificate.display_date %} · {{ certificate.display_date }}{% endif %}</div>
+          </div>
+          <span class="item-arrow" aria-hidden="true">→</span>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="section-action reveal">
       <a class="btn btn-ghost" href="{{ '/certificates/#achievements-trainings' | relative_url }}">{{ site.data.site.certificates_view_all_achievements_label }}</a>
     </div>
   </div>

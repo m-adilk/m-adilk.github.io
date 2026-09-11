@@ -216,7 +216,7 @@ title="ORCID">
     <p class="section-sub reveal">{{ site.data.site.research_subtitle }}</p>
     <div class="grid reveal">
       {% assign publications = site.research | sort: "date" | reverse %}
-      {% for publication in publications %}
+      {% for publication in publications limit: 3 %}
       <div class="card">
         <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
         <div class="meta">{{ publication.venue }}{% if publication.status %} · <b>{{ publication.status }}</b>{% endif %}</div>
@@ -224,6 +224,9 @@ title="ORCID">
         {% if publication.doi_url %}<a class="doi" href="{{ publication.doi_url }}" target="_blank" rel="noopener">View publication →</a>{% endif %}
       </div>
       {% endfor %}
+    </div>
+    <div class="section-action reveal">
+      <a class="btn btn-ghost" href="{{ '/publications/' | relative_url }}">{{ site.data.site.publications_view_all_label }}</a>
     </div>
     <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin:32px 0 10px; color:var(--blue-deep);" class="reveal">{{ site.data.site.research_interests_heading }}</h3>
     <div class="tags reveal">

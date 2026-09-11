@@ -1,0 +1,30 @@
+---
+layout: content
+title: Publications
+permalink: /publications/
+---
+<article class="detail-article publications-page wrap">
+  <p class="eyebrow">Research</p>
+  <h1>{{ site.data.site.publications_page_heading }}</h1>
+  <p class="detail-lead">{{ site.data.site.publications_page_subtitle }}</p>
+
+  <div class="publication-list">
+    {% assign publications = site.research | sort: "date" | reverse %}
+    {% for publication in publications %}
+      <article class="publication-item">
+        <div class="publication-year">{{ publication.date | date: "%Y" }}</div>
+        <div>
+          <h2><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h2>
+          <p class="publication-meta">{{ publication.venue }}{% if publication.status %} · <strong>{{ publication.status }}</strong>{% endif %}</p>
+          <p>{{ publication.authors }}</p>
+          <div class="publication-actions">
+            <a href="{{ publication.url | relative_url }}">View details →</a>
+            {% if publication.doi_url %}<a href="{{ publication.doi_url }}" target="_blank" rel="noopener">Open publication ↗</a>{% endif %}
+          </div>
+        </div>
+      </article>
+    {% else %}
+      <p>No publications have been added yet.</p>
+    {% endfor %}
+  </div>
+</article>

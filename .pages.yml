@@ -29,6 +29,9 @@ content:
       - { name: qualification_subtitle, label: Qualification subtitle, type: string, required: true }
       - { name: research_heading, label: Research heading, type: string, required: true }
       - { name: research_subtitle, label: Research subtitle, type: string, required: true }
+      - { name: publications_view_all_label, label: View all publications button, type: string, required: true }
+      - { name: publications_page_heading, label: Publications page heading, type: string, required: true }
+      - { name: publications_page_subtitle, label: Publications page subtitle, type: string, required: true }
       - { name: research_interests_heading, label: Research interests heading, type: string, required: true }
       - { name: supervision_heading, label: Supervision heading, type: string, required: true }
       - { name: experience_heading, label: Experience heading, type: string, required: true }

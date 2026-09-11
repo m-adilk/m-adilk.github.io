@@ -41,7 +41,8 @@ cv_heading: CV
 cv_subtitle: Full curriculum vitae
 certificates_heading: Certificates
 certificates_subtitle: Courses, reviewing credits, training and awards
-certificates_view_all_label: View all certificates and achievements
+certificates_view_all_courses_label: View all certificates
+certificates_view_all_achievements_label: View all achievements / trainings
 certificates_page_heading: Certificates and Achievements
 certificates_page_subtitle: Courses, reviewing credits, professional training and awards
 gallery_heading: Gallery

@@ -218,6 +218,7 @@ title="ORCID">
       {% assign publications = site.research | sort: "date" | reverse %}
       {% for publication in publications limit: 3 %}
       <div class="card">
+        <div class="publication-serial">Sr. No. {{ publication.sr_no | default: forloop.index }}</div>
         <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
         <div class="meta">{{ publication.venue }}{% if publication.status %} · <b>{{ publication.status }}</b>{% endif %}</div>
         <p>{{ publication.authors }}</p>
@@ -289,8 +290,9 @@ title="ORCID">
           </a>
         {% endfor %}
       </div>
-    <div class="section-action reveal">
-      <a class="btn btn-ghost" href="{{ '/certificates/' | relative_url }}">{{ site.data.site.certificates_view_all_label }}</a>
+    <div class="section-action section-action-split reveal">
+      <a class="btn btn-ghost" href="{{ '/certificates/#courses' | relative_url }}">{{ site.data.site.certificates_view_all_courses_label }}</a>
+      <a class="btn btn-ghost" href="{{ '/certificates/#achievements-trainings' | relative_url }}">{{ site.data.site.certificates_view_all_achievements_label }}</a>
     </div>
   </div>
 </section>

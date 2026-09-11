@@ -1087,6 +1087,8 @@ footer .icon-link i{
 .prose img{border-radius:12px;}
 .detail-action{display:inline-block; margin-top:28px;}
 .section-action{display:flex; justify-content:center; margin-top:28px;}
+.section-action-split{flex-wrap:wrap; gap:12px;}
+.publication-serial{font-family:'IBM Plex Mono',monospace; color:var(--blue); font-size:12px; font-weight:600; margin-bottom:6px; text-transform:uppercase; letter-spacing:.03em;}
 .publication-list{display:flex; flex-direction:column; gap:18px; margin-top:36px;}
 .publication-item{display:grid; grid-template-columns:72px 1fr; gap:20px; padding:24px; border:1px solid var(--line); border-radius:14px; background:#fff;}
 .publication-year{font-family:'IBM Plex Mono',monospace; color:var(--blue); font-weight:600;}
@@ -1097,6 +1099,7 @@ footer .icon-link i{
 .publication-meta{color:var(--muted); font-size:14px;}
 .publication-actions{display:flex; flex-wrap:wrap; gap:18px; margin-top:13px; font-family:'IBM Plex Mono',monospace; font-size:13px;}
 .certificate-category{padding:20px 0 8px;}
+.certificate-category{scroll-margin-top:80px;}
 .certificate-category h2{font-size:26px; margin-bottom:16px;}
 .certificate-index-list{display:flex; flex-direction:column; border-top:1px solid var(--line);}
 .certificate-index-item{display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid var(--line); color:inherit; text-decoration:none; border-radius:10px;}

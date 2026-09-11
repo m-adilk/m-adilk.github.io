@@ -12,7 +12,7 @@ permalink: /certificates/
   {% for category in certificate_categories %}
     {% assign certificates = site.certificates | where: "category", category | sort: "date" | reverse %}
     {% if certificates.size > 0 %}
-      <section class="certificate-category">
+      <section class="certificate-category" id="{% if category == 'Courses' %}courses{% else %}achievements-trainings{% endif %}">
         <h2>{{ category }}</h2>
         <div class="certificate-index-list">
           {% for certificate in certificates %}

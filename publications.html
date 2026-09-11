@@ -12,7 +12,10 @@ permalink: /publications/
     {% assign publications = site.research | sort: "date" | reverse %}
     {% for publication in publications %}
       <article class="publication-item">
-        <div class="publication-year">{{ publication.date | date: "%Y" }}</div>
+        <div>
+          <div class="publication-serial">Sr. No. {{ publication.sr_no | default: forloop.index }}</div>
+          <div class="publication-year">{{ publication.date | date: "%Y" }}</div>
+        </div>
         <div>
           <h2><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h2>
           <p class="publication-meta">{{ publication.venue }}{% if publication.status %} · <strong>{{ publication.status }}</strong>{% endif %}</p>
